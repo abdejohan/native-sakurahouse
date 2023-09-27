@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, ScrollView, Platform } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline'
 import { StatusBar } from 'expo-status-bar';
@@ -9,6 +9,8 @@ import { styles } from '../theme';
 import Hero from '../components/Hero';
 import CategoryList from '../components/CategoryList';
 import OrderSection from '../components/OrderSection';
+import { items } from '../constants';
+import Stats from '../components/Stats';
 
 const ios = Platform.OS === 'ios';
 
@@ -19,10 +21,9 @@ export default function HomeScreen() {
 
   return (
     <View className="flex-1 bg-white">
-      {/* search bar */}
       <SafeAreaView className={ios? "mb-2": "mb-3"}>
         <StatusBar style="light" />
-        <View className="flex-row justify-between items-center mx-4 my-3">
+        <View className="flex-row justify-between items-center mx-4 my-3 border-b-2 border-pink-500">
           <Bars3CenterLeftIcon size="30" strokeWidth={2} color="black" />
           <Text style={styles.text} className="text-3xl font-bold">Sakura House</Text>
           <TouchableOpacity onPress={()=> navigation.navigate('Search')}>
@@ -40,14 +41,11 @@ export default function HomeScreen() {
           >
             <Hero />
             <CategoryList />
-            <OrderSection dishes={undefined} /> 
+            <OrderSection items={items} /> 
+            <Stats />
           </ScrollView>
         )
       }
-      
   </View>
-      
-
-   
   )
 }
