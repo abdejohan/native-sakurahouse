@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
-  View,
-  Text,
-  TextInput,
   ScrollView,
-  TouchableOpacity,
 } from "react-native";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
@@ -15,43 +11,13 @@ import { items } from "../constants/index";
 import MenuStep from "./MenuStep";
 import OrderTotal from "./OrderTotal";
 
-const ORDER_STEPS = {
-  WHERE: 0,
-  WHO: 1,
-  WHAT: 2,
-};
-
 export default function OrderSection() {
   const navigation = useNavigation();
+  const scrollViewRef = useRef(null);
 
   const [order, setOrder] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [step, setStep] = useState(ORDER_STEPS.WHERE);
   const [numberOfPersons, setNumberOfPersons] = useState(1);
-
-  const smoothScrolling = (targetId) => {
-    navigation.navigate(targetId);
-  };
-
-  const handleEatingPlace = () => {
-    smoothScrolling("who");
-    setStep(ORDER_STEPS.WHO);
-  };
-
-  const handleNumberOfPeople = () => {
-    smoothScrolling("what");
-    setStep(ORDER_STEPS.WHAT);
-  };
-
-  const handleAddToMenu = (item) => {
-    const updatedOrder = [...order, item];
-    setOrder(updatedOrder);
-
-    const totalPrice = updatedOrder.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.price;
-    }, 0);
-    setTotalPrice(totalPrice);
-  };
 
   const handlePlaceOrder = (order, totalPrice) => {
     let newOrder = [];
@@ -87,13 +53,24 @@ export default function OrderSection() {
       });
   };
 
+  const handleAddToMenu = (item) => {
+    const updatedOrder = [...order, item];
+    setOrder(updatedOrder);
+
+    const totalPrice = updatedOrder.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.price;
+    }, 0);
+    setTotalPrice(totalPrice);
+  };
+
+
   return (
-    <ScrollView className="flex-1">
-      <WhereStep handleEatingPlace={handleEatingPlace} />
-      <CoversNumberStep
+    <ScrollView className="flex-1 p-4" ref={scrollViewRef}>
+      <WhereStep />
+      {/* <CoversNumberStep
         setNumberOfPersons={setNumberOfPersons}
         handleNumberOfPeople={handleNumberOfPeople}
-      />
+      /> */}
       <MenuStep
         handleAddToMenu={handleAddToMenu}
         categories={categories}

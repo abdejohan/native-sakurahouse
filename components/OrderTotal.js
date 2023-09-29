@@ -4,52 +4,7 @@ export default function OrderTotal({
   order,
   totalPrice,
   handlePlaceOrder,
-  numberOfPersons,
 }) {
-  const emojis = [
-    "👨 ",
-    "👱‍♀️ ",
-    "👧 ",
-    "👩‍🦰 ",
-    "👩‍🦳 ",
-    "👶 ",
-    "👧🏾 ",
-    "🧓🏾 ",
-    "👨🏿‍🦱 ",
-    "👨🏾‍🦳 ",
-    "👨🏾 ",
-    "👩🏻 ",
-    "👩🏻‍🦲 ",
-    "🧒🏼 ",
-    "👨🏼‍🦰 ",
-    "👨🏼 ",
-    "👨🏼‍🦳 ",
-    "👸🏼 ",
-    "👦🏻 ",
-    "👱🏻‍♀️ ",
-    "👨🏻 ",
-    "👸🏻 ",
-    "👳🏻‍♀️ ",
-    "👧🏻 ",
-    "👨🏾‍🦳 ",
-    "🤶🏾 ",
-    "👧🏾 ",
-    "👴🏾 ",
-    "👲🏾 ",
-    "👩🏿‍🦲 ",
-    "👨🏿 ",
-    "🧓🏿 ",
-    "👨🏿‍🦳 ",
-    "👱🏿‍♀️ ",
-    "👨‍🦱 ",
-    "👨🏻 ",
-    "🧔🏽 ",
-  ];
-
-  const emojisArray = new Array(numberOfPersons).fill(null).map(() => {
-    const randomIndex = Math.floor(Math.random() * emojis.length);
-    return emojis[randomIndex];
-  });
 
   let newObjOrder = {};
   order.forEach((item) => {
@@ -66,24 +21,32 @@ export default function OrderTotal({
   const updatedOrder = Object.values(newObjOrder);
 
   return (
-    <View className="bg-pink-100 hover:bg-pink-200 rounded-lg shadow-lg p-5 w-full mt-4 mb-14">
-      <Text className="font-bold text-xl mb-2">Order - Items selected: </Text>
-      <Text className="mb-4">
-        For {numberOfPersons} {numberOfPersons === 1 ? "person" : "people"}{" "}
-        {emojisArray}
+    <View className="min-h-[90vh] my-4">
+      <Text className="font-bold text-xl mb-2">Here's your shopping card:</Text>
+      <Text>
+        Check if every article and quantity are good for you before going
+        forward.
       </Text>
-      {updatedOrder.map((item, index) => (
-        <Text key={`${item}${index}orderitem`}>
-          x{item.quantity} {item.title}
-        </Text>
-      ))}
-      <Text className='my-4'>Total Price: <Text className="font-bold">${totalPrice.toFixed(2)}</Text>
-      </Text>
-      <TouchableOpacity
-        className="bg-pink-500 hover:bg-pink-400 font-medium py-2 px-4 rounded"
-        onPress={() => handlePlaceOrder(order, totalPrice)}>
-        <Text className="text-white">Place Order</Text>
-      </TouchableOpacity>
+      <View className="bg-pink-100 p-4 mt-4 mb-14 rounded-3xl">
+        {updatedOrder.map((item, index) => (
+          <View
+            key={`${item}${index}orderitem`}
+            className="flex flex-row justify-start">
+            <Text className="w-10">x{item.quantity}</Text>
+            <Text className="w-60">
+              {item.title} {item.specification}
+            </Text>
+            {/* <Text>(${item.price.toFixed(2)})</Text> */}
+            <Text className="w-20">${(item.price * item.quantity).toFixed(2)}</Text>
+          </View>
+        ))}
+        <TouchableOpacity
+          className="flex flex-row justify-between mt-4 bg-pink-500 py-2 px-4 rounded-xl"
+          onPress={() => handlePlaceOrder(order, totalPrice)}>
+          <Text className="text-white text-lg font-bold">Place Order</Text>
+          <Text className="text-white text-lg font-bold">Total: ${totalPrice.toFixed(2)}</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

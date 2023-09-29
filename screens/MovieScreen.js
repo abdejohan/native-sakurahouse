@@ -25,7 +25,6 @@ export default function MovieScreen() {
   const [loading, setLoading] = useState(false);
 
 
-
   useEffect(()=>{
     setLoading(true);
     getMovieDetials(item.id);

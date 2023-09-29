@@ -9,13 +9,13 @@ export default function CoversNumberStep({ setNumberOfPersons, handleNumberOfPeo
       };
 
   return (
-    <View className="p-4">
+    <View className="my-4">
       <Text className="font-bold text-xl mb-2">How many covers?</Text>
       <Text className="mb-2">
         Select the number of persons this order will be for
       </Text>
       <View className="my-2">
-        <View className="relative mb-5 w-full">
+        <View className="relative w-full">
           <TextInput
             onChangeText={handleInputChange}
             keyboardType="numeric"

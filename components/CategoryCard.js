@@ -7,8 +7,8 @@ export default function CategoryCard ({ category }) {
 
   return (
     <TouchableOpacity
-      className="w-full rounded-3xl my-5 py-3 flex flex-col items-center justify-center border border-sky-500 cursor-pointer wavy-underline"
-      onPress={() => navigation.navigate(`categories/${category.label}`)}
+      className="w-full rounded-3xl my-2 py-3 flex flex-col items-center justify-center bg-pink-100"
+      // onPress={() => navigation.navigate(`categories/${category.label}`)}
     >
       <View className="h-40 w-40 p-4">
         <Image

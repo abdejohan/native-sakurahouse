@@ -14,6 +14,7 @@ import plus from './plus-small.png'
 import delivery from './delivery-bike.png'
 import restaurant from './restaurant.png'
 import takeOut from './take-out.png'
+import sakuraBg from './sakura-bg.png'
 
 export const interfaceIcons = {
     'takeOut' : takeOut,
@@ -30,5 +31,6 @@ export const interfaceIcons = {
     'google' : google,
     'github' : github,
     'close' : close,
-    'search' : search
+    'search' : search,
+    'sakuraBg' : sakuraBg,
 };

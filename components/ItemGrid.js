@@ -5,11 +5,10 @@ export default function ItemGrid ({ items, category, handleAddToMenu }) {
 
 
     return (
-        <View className="mb-10 text-sm grid gap-5">
+        <View className="grid">
             {
                 items.map((item, index) => {
                     if (item.category == category.label) {
-
                         return (
                             <ItemCard
                                 key={`${index}${item._id}itemcarddfsd`}

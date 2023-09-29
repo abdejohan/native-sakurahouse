@@ -1,51 +1,35 @@
-import { View, Text, TouchableOpacity, ScrollView, Platform } from 'react-native'
-import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context';
-import {Bars3CenterLeftIcon, MagnifyingGlassIcon} from 'react-native-heroicons/outline'
-import { StatusBar } from 'expo-status-bar';
-import { useNavigation } from '@react-navigation/native';
-import Loading from '../components/loading';
-import { styles } from '../theme';
-import Hero from '../components/Hero';
-import CategoryList from '../components/CategoryList';
-import OrderSection from '../components/OrderSection';
-import { items } from '../constants';
-import Stats from '../components/Stats';
+import {
+  View,
+  ScrollView,
+  Platform,
+  Image,
+} from "react-native";
+import React, { useState } from "react";
+import Loading from "../components/loading";
+import Hero from "../components/Hero";
+import { interfaceIcons } from "../assets/interface";
 
-const ios = Platform.OS === 'ios';
+const ios = Platform.OS === "ios";
 
 export default function HomeScreen() {
-
   const [loading, setLoading] = useState(false);
-  const navigation = useNavigation();
 
   return (
     <View className="flex-1 bg-white">
-      <SafeAreaView className={ios? "mb-2": "mb-3"}>
-        <StatusBar style="light" />
-        <View className="flex-row justify-between items-center mx-4 my-3 border-b-2 border-pink-500">
-          <Bars3CenterLeftIcon size="30" strokeWidth={2} color="black" />
-          <Text style={styles.text} className="text-3xl font-bold">Sakura House</Text>
-          <TouchableOpacity onPress={()=> navigation.navigate('Search')}>
-            <MagnifyingGlassIcon size="30" strokeWidth={2} color="white" />
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
-      {
-        loading? (
-          <Loading />
-        ):(
-          <ScrollView 
-            showsVerticalScrollIndicator={false} 
-            contentContainerStyle={{paddingBottom: 10}}
-          >
-            <Hero />
-            <CategoryList />
-            <OrderSection items={items} /> 
-            <Stats />
-          </ScrollView>
-        )
-      }
-  </View>
-  )
+      {loading ? (
+        <Loading />
+      ) : (
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 10 }}>
+          <Image
+            source={interfaceIcons["sakuraBg"]}
+            alt="sakura-bg"
+            className="absolute w-full opacity-40"
+          />
+          <Hero />
+        </ScrollView>
+      )}
+    </View>
+  );
 }

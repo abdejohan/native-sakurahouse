@@ -2,25 +2,17 @@ import { interfaceIcons } from "../assets/interface";
 import React, { useState } from "react";
 import { Button, Image, TouchableOpacity } from "react-native";
 
-export default function AddButton({ handleAddToMenu, dish }) {
-  const [isPinging, setIsPinging] = useState(false);
+export default function AddButton({ handleAddToMenu, item }) {
 
   const handlePress = () => {
-    setIsPinging(true);
-    handleAddToMenu(dish);
-
-    setTimeout(() => {
-      setIsPinging(false);
-    }, 1000);
+    handleAddToMenu(item);
   };
 
   return (
     <TouchableOpacity
       onPress={handlePress}
-      className={`rounded-xl absolute bottom-3 right-3 bg-pink-500 hover:bg-pink-400 w-12 aspect-square text-white ${
-        isPinging ? "animate-ping" : "hover:animate-spin"
-      }`}>
-      <Image source={interfaceIcons["plus"]} alt="atc-icon" className="m-2" />
+      className={`rounded-xl bg-pink-400 w-12 aspect-square text-white animate-ping`}>
+      <Image source={interfaceIcons["plus"]} alt="atc-icon" className="max-w-full max-h-full object-contain" />
     </TouchableOpacity>
   );
 }

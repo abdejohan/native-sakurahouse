@@ -12,7 +12,7 @@ export default function Stats() {
       {stats.map((stat) => (
         <View key={stat.id} className="w-full p-4 text-center">
           <Text className="text-base leading-7 text-gray-600">{stat.name}</Text>
-          <Text className="text-3xl font-semibold tracking-tight text-gray-900 hover:text-pink-500">
+          <Text className="text-3xl font-semibold tracking-tight text-gray-900">
             {stat.value}
           </Text>
         </View>
