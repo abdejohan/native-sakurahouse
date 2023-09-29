@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import WhereScreen from "../screens/WhereScreen";
 import ItemScreen from "../screens/ItemScreen";
-import SearchScreen from "../screens/SearchScreen";
 import Header from "../components/Header";
 import MenuScreen from "../screens/MenuScreen";
 import ThanksScreen from "../screens/ThanksScreen";
@@ -41,7 +40,6 @@ export default function AppNavigation() {
           options={{ headerShown: false }}
           component={ItemScreen}
         />
-        {/* <Stack.Screen name="Search" options={{headerShown: false}} component={SearchScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

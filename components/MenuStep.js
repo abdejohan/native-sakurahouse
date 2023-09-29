@@ -4,12 +4,8 @@ import ItemGrid from "./ItemGrid";
 
 export default function MenuStep({ handleAddToMenu, categories, items }) {
   return (
-    <View className="min-h-[90vh] mx-auto w-full mb-14">
-      <Text className="font-bold text-xl mb-2">What will you eat today?</Text>
-      <Text>
-        Browse within our menu, select your items add them to your card and
-        order!
-      </Text>
+    <View className="min-h-[90vh] flex flex-col mx-auto w-full">
+      <Text className="font-bold text-center text-2xl">Go ahead and choose!</Text>
       <View className="mt-6">
         {categories.map((category) => (
           <Tab

@@ -19,11 +19,11 @@ export default function HomeScreen() {
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 10 }}>
-          <Image
+          {/* <Image
             source={interfaceIcons["sakuraBg"]}
             alt="sakura-bg"
             className="absolute w-full opacity-40"
-          />
+          /> */}
           <Hero />
         </ScrollView>
       )}

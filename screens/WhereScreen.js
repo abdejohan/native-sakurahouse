@@ -22,7 +22,7 @@ export default function WhereScreen() {
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 10 }}
-          className="p-4">
+          className="px-4">
           <WhereStep handleWhereChoice={handleWhereChoice} />
         </ScrollView>
       )}

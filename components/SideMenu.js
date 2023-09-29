@@ -4,7 +4,7 @@ import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-nati
 var {width, height} = Dimensions.get('window');
 
 
-export default function Menu({ isOpen, onClose }) {
+export default function SideMenu({ isOpen, onClose }) {
   if (!isOpen) {
     return null; // Don't render the menu if it's closed
   }
