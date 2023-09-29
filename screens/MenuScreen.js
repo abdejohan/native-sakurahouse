@@ -68,7 +68,8 @@ export default function MenuScreen() {
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 10 }}
-          className="p-4">
+          className="p-4"
+        >
           <MenuStep
             handleAddToMenu={handleAddToMenu}
             categories={categories}

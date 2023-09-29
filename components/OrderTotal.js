@@ -21,13 +21,13 @@ export default function OrderTotal({
   const updatedOrder = Object.values(newObjOrder);
 
   return (
-    <View className="min-h-[90vh] my-4">
+    <View className="mb-14 ">
       <Text className="font-bold text-xl mb-2">Here's your shopping card:</Text>
       <Text>
         Check if every article and quantity are good for you before going
         forward.
       </Text>
-      <View className="bg-pink-100 p-4 mt-4 mb-14 rounded-3xl">
+      <View className="bg-pink-100 p-4 my-4 rounded-xl">
         {updatedOrder.map((item, index) => (
           <View
             key={`${item}${index}orderitem`}
@@ -40,13 +40,13 @@ export default function OrderTotal({
             <Text className="w-20">${(item.price * item.quantity).toFixed(2)}</Text>
           </View>
         ))}
+      </View>
         <TouchableOpacity
-          className="flex flex-row justify-between mt-4 bg-pink-500 py-2 px-4 rounded-xl"
+          className="flex flex-row justify-between bg-pink-500 py-2 px-4 rounded-xl"
           onPress={() => handlePlaceOrder(order, totalPrice)}>
           <Text className="text-white text-lg font-bold">Place Order</Text>
           <Text className="text-white text-lg font-bold">Total: ${totalPrice.toFixed(2)}</Text>
         </TouchableOpacity>
-      </View>
     </View>
   );
 }
