@@ -3,7 +3,7 @@ This is a cool japanese restaurant app! Build with React Native. Feel free to su
 
 # Suggest new features/issues
 
-# Check the issues tab 
+Go to the issues tab and don't hesitate to create a new issue if you have a idea you would like to implement into our app!
 
 # Add a new Dish :
 
