@@ -1,7 +1,9 @@
 # native-sakurahouse
 This is a cool japanese restaurant app! Build with React Native. Feel free to suggest new features and to enhance the codebase 🌸🚀
 
-# Check the issues tab
+# Suggest new features/issues
+
+# Check the issues tab 
 
 # Add a new Dish :
 
