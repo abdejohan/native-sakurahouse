@@ -3,8 +3,6 @@ import dishes from "../assets/categories/ramen-color.png";
 import drinks from "../assets/categories/drink.png";
 import sweets from "../assets/categories/mochi.png";
 
-import dishItems from "./items.json";
-
 export const categories = [
   {
     label: "Sushis",
