@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import AddButton from "./AddButton";
 import { View, Text, TouchableOpacity, Image } from "react-native";
+import RemoveButton from "./RemoveButton";
 
 export default function ItemCard({ item, index, handleAddToMenu }) {
   const navigation = useNavigation();
@@ -23,11 +24,16 @@ export default function ItemCard({ item, index, handleAddToMenu }) {
       </View>
       <View className="flex flex-row items-center justify-between px-4 bg-pink-100 h-[30%] w-full absolute bottom-0">
         <View>
-        <Text className="font-medium text-xl">{item.title}</Text>
-        <Text className="">${item.price.toFixed(2)} for {item.specification}</Text>
+          <Text className="font-medium text-xl">{item.title}</Text>
+          <Text className="italic text-xs">
+            ${item.price.toFixed(2)} for {item.specification}
+          </Text>
         </View>
         {handleAddToMenu && (
-          <AddButton handleAddToMenu={handleAddToMenu} item={item} />
+          <View className="flex flex-row bg-white rounded-3xl">
+            <RemoveButton handleAddToMenu={handleAddToMenu} item={item} />
+            <AddButton handleAddToMenu={handleAddToMenu} item={item} />
+          </View>
         )}
       </View>
     </TouchableOpacity>

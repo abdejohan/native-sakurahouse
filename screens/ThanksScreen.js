@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, Touchable, TouchableOpacity, View } from "react-native";
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import { useNavigation } from "@react-navigation/native";
 
 export default function ThanksScreen() {

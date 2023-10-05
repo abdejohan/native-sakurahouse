@@ -3,7 +3,6 @@ import ItemCard from './ItemCard';
 
 export default function ItemGrid ({ items, category, handleAddToMenu }) {
 
-
     return (
         <View className="grid">
             {
@@ -11,7 +10,7 @@ export default function ItemGrid ({ items, category, handleAddToMenu }) {
                     if (item.category == category.label) {
                         return (
                             <ItemCard
-                                key={`${index}${item._id}itemcarddfsd`}
+                                key={`${index}${item._id}-itemcard`}
                                 item={item}
                                 index={index}
                                 handleAddToMenu={handleAddToMenu}

@@ -4,7 +4,7 @@ import ItemGrid from "./ItemGrid";
 
 export default function MenuStep({ handleAddToMenu, categories, items }) {
   return (
-    <View className="min-h-[90vh] flex flex-col mx-auto w-full">
+    <View className="flex flex-col mx-auto w-full">
       <Text className="font-bold text-center text-2xl">Go ahead and choose!</Text>
       <View className="mt-6">
         {categories.map((category) => (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, ScrollView } from "react-native";
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import WhereStep from "../components/WhereStep";
 import { useNavigation } from "@react-navigation/native";
 

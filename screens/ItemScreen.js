@@ -13,7 +13,7 @@ import { ArrowLeftIcon, ChevronLeftIcon } from "react-native-heroicons/outline";
 import { HeartIcon } from "react-native-heroicons/solid";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles, theme } from "../theme";
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 const ios = Platform.OS == "ios";

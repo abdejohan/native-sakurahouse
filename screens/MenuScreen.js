@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import { ScrollView, Text, View } from "react-native";
 import MenuStep from "../components/MenuStep";
 import { categories, items } from "../constants/index";

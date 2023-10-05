@@ -1,8 +1,7 @@
 import { View, ScrollView, Platform, Image, Dimensions } from "react-native";
 import React, { useState } from "react";
-import Loading from "../components/loading";
+import Loading from "../components/Loading";
 import Hero from "../components/Hero";
-import { interfaceIcons } from "../assets/interface";
 import Confetti from 'react-confetti'
 
 const ios = Platform.OS === "ios";

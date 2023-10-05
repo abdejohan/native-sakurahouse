@@ -13,8 +13,8 @@ export default function WhereCard({
   return (
     <TouchableOpacity
       onPress={handlePress}
-      className="w-[60%] aspect-[9/10] rounded-3xl my-2 py-3 flex flex-col justify-center items-center bg-pink-100">
-      <View className="h-32 w-32 p-2 mb-4">
+      className="w-[47%] aspect-[9/11] rounded-3xl my-6 py-3 mx-auto flex flex-col justify-center items-center bg-pink-100">
+      <View className="h-24 w-24 p-1 mb-6">
         <Image
           className="max-w-full max-h-full"
           source={imageSrc}
@@ -22,7 +22,7 @@ export default function WhereCard({
         />
       </View>
       <View className="py-2 text-center absolute bottom-5">
-        <Text className="text-center font-bold text-xl">{label}</Text>
+        <Text className="tracking-wider	text-center font-bold text-xl">{label}</Text>
       </View>
     </TouchableOpacity>
   );

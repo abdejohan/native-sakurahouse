@@ -16,14 +16,14 @@ export default function AppNavigation() {
       <Header />
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          options={{ headerShown: false }}
-          component={HomeScreen}
-        />
-        <Stack.Screen
           name="Where"
           options={{ headerShown: false }}
           component={WhereScreen}
+        />
+        <Stack.Screen
+          name="Home"
+          options={{ headerShown: false }}
+          component={HomeScreen}
         />
         <Stack.Screen
           name="Menu"

@@ -1,7 +1,8 @@
-import sushis from "../assets/categories/sushi.png";
-import dishes from "../assets/categories/ramen-color.png";
-import drinks from "../assets/categories/drink.png";
-import sweets from "../assets/categories/mochi.png";
+import sushis from '../assets/sakuraFestival/sushis.png';
+import dishes from '../assets/sakuraFestival/dishes.png'
+import drinks from '../assets/sakuraFestival/drinks.png';
+import sweets from '../assets/sakuraFestival/sweets.png';
+
 
 export const categories = [
   {
