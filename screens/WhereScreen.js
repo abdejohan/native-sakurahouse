@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, ScrollView } from "react-native";
 import Loading from "../components/Loading";
-import WhereStep from "../components/WhereStep";
+import WhereStep from "../components/WhereScreen/WhereStep";
 import { useNavigation } from "@react-navigation/native";
 
 export default function WhereScreen() {
@@ -11,7 +11,7 @@ export default function WhereScreen() {
 
   const handleWhereChoice = (choice) => {
     setWhereChoice(choice);
-    navigation.navigate("Menu", { whereChoice });
+    navigation.navigate("Categories", { whereChoice });
   };
 
   return (

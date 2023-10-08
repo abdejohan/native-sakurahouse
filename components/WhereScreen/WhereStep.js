@@ -1,13 +1,13 @@
 import WhereCard from "./WhereCard";
 import { View, Text, Image } from "react-native";
-import ramen from "../assets/sakuraFestival/temple.png";
-import sakuraTree from "../assets/sakuraFestival/tree.png";
-import sakura from "../assets/sakuraFestival/sakura-1.png";
+import ramen from "../../assets/sakuraFestival/temple.png";
+import sakuraTree from "../../assets/sakuraFestival/tree.png";
+import sakura from "../../assets/sakuraFestival/sakura-1.png";
 
 export default function WhereStep({ handleWhereChoice }) {
   return (
     <View className="h-[90vh] flex flex-col items-center mx-auto w-full">
-      <View className="h-24 w-24 mt-20 mb-16">
+      <View className="h-24 w-24 my-16">
         <Image
           className="max-w-full max-h-full"
           source={sakura}

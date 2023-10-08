@@ -3,9 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import WhereScreen from "../screens/WhereScreen";
-import ItemScreen from "../screens/ItemScreen";
 import Header from "../components/Header";
-import MenuScreen from "../screens/MenuScreen";
+import CategoriesScreen from "../screens/CategoriesScreen";
+import ItemsScreen from "../screens/ItemsScreen";
 import ThanksScreen from "../screens/ThanksScreen";
 
 const Stack = createNativeStackNavigator();
@@ -21,14 +21,14 @@ export default function AppNavigation() {
           component={WhereScreen}
         />
         <Stack.Screen
-          name="Home"
+          name="Categories"
           options={{ headerShown: false }}
-          component={HomeScreen}
+          component={CategoriesScreen}
         />
         <Stack.Screen
-          name="Menu"
+          name="Items"
           options={{ headerShown: false }}
-          component={MenuScreen}
+          component={ItemsScreen}
         />
         <Stack.Screen
           name="Thanks"
@@ -36,9 +36,9 @@ export default function AppNavigation() {
           component={ThanksScreen}
         />
         <Stack.Screen
-          name="Item"
+          name="Home"
           options={{ headerShown: false }}
-          component={ItemScreen}
+          component={HomeScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

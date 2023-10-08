@@ -1,11 +1,12 @@
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import ItemCard from './ItemCard';
 
-export default function ItemGrid ({ items, category, handleAddToMenu }) {
-
+export default function ItemsGrid ({ items, category,
+    handleAddToMenu
+}) {
     return (
-        <View className="grid">
-            {
+        <View className="flex flex-row flex-wrap mt-8 justify-center min-h-[90vh]">
+        {
                 items.map((item, index) => {
                     if (item.category == category.label) {
                         return (
@@ -17,7 +18,7 @@ export default function ItemGrid ({ items, category, handleAddToMenu }) {
                             />
                         );
                     }
-                    return null; // You should handle the case when the condition is not met, either return something or use 'null'
+                    return null;
                 })
             }
         </View>

@@ -6,7 +6,6 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { categories } from "../constants/index";
 import WhereStep from "./WhereStep";
-import CoversNumberStep from "./CoversNumberStep";
 import { items } from "../constants/index";
 import MenuStep from "./MenuStep";
 import OrderTotal from "./OrderTotal";
@@ -67,10 +66,6 @@ export default function OrderSection() {
   return (
     <ScrollView className="flex-1 p-4" ref={scrollViewRef}>
       <WhereStep />
-      {/* <CoversNumberStep
-        setNumberOfPersons={setNumberOfPersons}
-        handleNumberOfPeople={handleNumberOfPeople}
-      /> */}
       <MenuStep
         handleAddToMenu={handleAddToMenu}
         categories={categories}

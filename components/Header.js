@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { View, Text, Platform } from "react-native";
+import React, { useState, useRef, useEffect } from "react";
+import { View, Text, Platform, Animated, Easing } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Bars3CenterLeftIcon } from "react-native-heroicons/outline";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,21 +8,48 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const ios = Platform.OS === "ios";
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const slideAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    startAnimation();
+  }, []);
+
+  const startAnimation = () => {
+    slideAnim.setValue(0);
+
+    Animated.timing(slideAnim, {
+      toValue: 1,
+      duration: 5000, // Adjust the duration as needed
+      easing: Easing.linear,
+      useNativeDriver: false, // Set this to true for better performance if available
+    }).start(() => {
+      startAnimation(); // Restart the animation when it's completed
+    });
+  };
+
   return (
     <SafeAreaView className={ios ? "mb-2" : "mb-3"}>
       <StatusBar style="light" />
-      <View className="flex-row justify-center items-center mx-4 my-3">
-        {/* <TouchableOpacity onPress={toggleMenu}>
-          <Bars3CenterLeftIcon size="30" strokeWidth={2} color="#ec4899" />
-        </TouchableOpacity> */}
-        <Text className="text-3xl font-bold text-pink-400">SakuraHouse</Text>
-      </View>
+      <Animated.Text
+        numberOfLines={1}
+        style={{
+          transform: [
+            {
+              translateX: slideAnim.interpolate({
+                inputRange: [0, 1],
+                outputRange: [300, -400],
+              }),
+            },
+          ],
+        }}>
+        SakuraHouse Experience the essence of Japanese cuisine 🌸
+      </Animated.Text>
     </SafeAreaView>
   );
 }

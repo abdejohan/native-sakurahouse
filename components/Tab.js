@@ -11,38 +11,24 @@ export default function Tab({ children, title, title2, icon }) {
   };
 
   return (
-    <View className={`py-2 ${isOpen ? "fixed" : ""}`}>
+    <View className={`bg-green-200 max-w-[45vw] ${isOpen ? "fixed" : ""}`}>
       <TouchableOpacity
-        activeOpacity={0.8}
-        className={`cursor-pointer border-black p-2 flex flex-row justify-center items-center gap-8 ${
-          isOpen ? "font-bold" : "font-normal"
-        }`}
-        onPress={handleTabClick}>
-        <View className="flex-none h-8 w-8 justify-self-start">
-          <Image
-            source={angleCircleDown}
-            className={`max-w-full max-h-full object-contain p-2`}
-            alt="folded-icon"
-          />
+        onPress={handleTabClick}
+        className="aspect-[9/11] rounded-3xl my-4 py-3 mx-auto flex flex-col justify-center items-center bg-pink-100">
+        <View className="h-24 w-24 p-1 mb-6">
+          <Image className="max-w-full max-h-full" source={icon} alt={title} />
         </View>
-        <View className="flex-grow">
-          <Text className={`text-lg ${isOpen ? "font-bold" : ""}`}>
-            {title} | {title2 && title2}
+        <View className="py-2 text-center absolute bottom-5">
+          <Text className="tracking-wider	text-center font-bold text-xl">
+            {title}
           </Text>
-        </View>
-        <View className="flex-none h-20 w-20 p-3 bg-pink-100 rounded-full">
-          <Image
-            className="max-w-full max-h-full"
-            source={icon}
-            alt="category-icon"
-          />
         </View>
       </TouchableOpacity>
       <View
         className={` ${
           isOpen
             ? "opacity-100 h-auto mb-6"
-            : "opacity-0 h-0 my-0 overflow-hidden"
+            : "opacity-0 h-0 my-0"
         }`}>
         {children}
       </View>

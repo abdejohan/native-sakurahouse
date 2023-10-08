@@ -75,11 +75,11 @@ export default function MenuScreen() {
             categories={categories}
             items={items}
           />
-          <OrderTotal
+          {/* <OrderTotal
             order={order}
             totalPrice={totalPrice}
             handlePlaceOrder={handlePlaceOrder}
-          />
+          /> */}
         </ScrollView>
       )}
     </View>
