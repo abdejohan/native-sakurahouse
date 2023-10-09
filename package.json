@@ -36,6 +36,7 @@
     "react-native-star-rating": "^1.1.0",
     "react-native-svg": "13.4.0",
     "react-native-vector-icons": "^10.0.0",
+    "rn-sliding-up-panel": "^2.4.6",
     "tailwind-rn": "^4.2.0"
   },
   "devDependencies": {

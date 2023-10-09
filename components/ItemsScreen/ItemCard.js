@@ -4,17 +4,25 @@ import minusCircle from "../../assets/interface/minus-circle.png";
 import add from "../../assets/interface/add.png";
 import { TextInput } from "react-native";
 
-export default function ItemCard({ item, index, handleAddToMenu }) {
+export default function ItemCard({
+  item,
+  index,
+  handleAddToMenu,
+  setItemOpen,
+}) {
   const handlePress = () => {
     handleAddToMenu(item);
   };
 
+
+
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => setItemOpen(item)}
       key={`${index}${item.title}-itemcard`}
       className="w-[47%] h-full rounded-3xl aspect-[9/13] my-2 mx-auto flex flex-col justify-between relative">
       <View className="w-full h-[50%] bg-gray-100 rounded-t-3xl">
-        <Image className="rounded-t-3xl" src={item?.image} alt="Card Image" />
+        <Image className="rounded-t-3xl h-full" src={item?.image} alt="Card Image" />
       </View>
       <View className="w-full h-[50%] flex flex-col items-start justify-start px-4 bg-pink-100 rounded-b-3xl absolute bottom-0">
         <View className="my-3">
@@ -49,6 +57,6 @@ export default function ItemCard({ item, index, handleAddToMenu }) {
           </View>
         )}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
