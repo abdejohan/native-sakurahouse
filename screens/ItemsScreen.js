@@ -6,7 +6,7 @@ import Loading from "../components/Loading";
 import { ScrollView } from "react-native";
 import { Text } from "react-native";
 import ItemsGrid from "../components/ItemsScreen/ItemsGrid";
-import ItemPanel from "../components/ItemPanel";
+import ItemPanel from "../components/ItemsScreen/ItemPanel";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { Dimensions } from "react-native";
