@@ -26,11 +26,6 @@ export default function AppNavigation() {
           component={CategoriesScreen}
         />
         <Stack.Screen
-          name="Items"
-          options={{ headerShown: false }}
-          component={ItemsScreen}
-        />
-        <Stack.Screen
           name="Thanks"
           options={{ headerShown: false }}
           component={ThanksScreen}

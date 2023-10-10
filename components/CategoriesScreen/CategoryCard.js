@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import { useNavigation } from '@react-navigation/native';
 
-export default function CategoryCard({ category }) {
-  const navigation = useNavigation();
+export default function CategoryCard({ category, categorySelected, setCategorySelected }) {
 
   return (
     <TouchableOpacity
       className="w-[47%] rounded-3xl aspect-[9/11] mx-auto my-2 py-3 flex flex-col items-center justify-center bg-pink-100"
-      onPress={() => navigation.navigate("Items", { category: category })}
+      onPress={() => {
+        categorySelected !== category ? setCategorySelected(category) : setCategorySelected("")
+      }}
     >
       <View className="h-28 w-28 p-4 mt-4">
         <Image

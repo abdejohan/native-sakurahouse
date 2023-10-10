@@ -2,7 +2,7 @@ import React from "react";
 import CategoryCard from "./CategoryCard";
 import { View } from "react-native-animatable";
 
-const CategoriesGrid = ({ categories }) => {
+const CategoriesGrid = ({ categories, categorySelected, setCategorySelected }) => {
 
   return (
     <View className="flex flex-row flex-wrap mt-8 justify-center">
@@ -10,6 +10,8 @@ const CategoriesGrid = ({ categories }) => {
         <CategoryCard
             category={category}
             key={category.label}
+            categorySelected={categorySelected}
+            setCategorySelected={setCategorySelected}
         />
       ))}
     </View>

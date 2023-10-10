@@ -14,8 +14,6 @@ export default function ItemCard({
     handleAddToMenu(item);
   };
 
-
-
   return (
     <TouchableOpacity
       onPress={() => setItemOpen(item)}

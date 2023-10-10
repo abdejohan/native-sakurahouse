@@ -1,7 +1,6 @@
 import SlidingUpPanel from "rn-sliding-up-panel";
 import {
   View,
-  ScrollView,
   Button,
   Text,
   Animated,
@@ -21,7 +20,6 @@ const ItemPanel = ({ itemOpen, setItemOpen }) => {
       ref={(c) => (this._panel = c)}
       animatedValue={animatedValue}
       draggableRange={draggableRange}
-      snappingPoints={[((height / 100) * 45)]}
       onBottomReached={() => setItemOpen(null)}>
       <View className="flex-1 bg-white items-center justify-start px-4 relative rounded-3xl">
         {itemOpen && (
