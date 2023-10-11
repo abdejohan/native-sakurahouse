@@ -14,7 +14,7 @@ export default function WhereStep({ handleWhereChoice }) {
           alt='sakura-logo'
         />
       </View>
-      <Text className="tracking-wider font-bold text-center px-4 text-[32px] mb-2">
+      <Text className="tracking-widest font-bold text-center px-4 text-[30px] mb-2">
         Where will you be eating today?
       </Text>
       <View className="flex flex-row items-center mt-6 w-full">

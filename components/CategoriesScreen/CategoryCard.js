@@ -5,20 +5,20 @@ export default function CategoryCard({ category, categorySelected, setCategorySe
 
   return (
     <TouchableOpacity
-      className="w-[47%] rounded-3xl aspect-[9/11] mx-auto my-2 py-3 flex flex-col items-center justify-center bg-pink-100"
+      className={`${categorySelected === category ? "bg-pink-200 border" : "bg-pink-100"} w-[45%] aspect-[9/10] rounded-3xl mx-auto my-2 py-3 flex flex-col items-center justify-center`}
       onPress={() => {
         categorySelected !== category ? setCategorySelected(category) : setCategorySelected("")
       }}
     >
-      <View className="h-28 w-28 p-4 mt-4">
+      <View className="h-20 w-20 p-1 mb-4">
         <Image
-          className="max-w-full max-h-full object-contain"
+          className="max-w-full max-h-full"
           source={category?.icon}
           alt="Category Image"
         />
       </View>
-      <View className="flex justify-start pb-6 text-center">
-        <Text className="font-bold text-lg w-full">{category.label} | {category.japaneseLabel}</Text>
+      <View className="text-center">
+        <Text className={`${categorySelected === category ? "font-black" : "font-normal"}  text-lg w-full`}>{category.label} | {category.japaneseLabel}</Text>
       </View>
     </TouchableOpacity>
   );

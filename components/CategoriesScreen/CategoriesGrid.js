@@ -5,7 +5,7 @@ import { View } from "react-native-animatable";
 const CategoriesGrid = ({ categories, categorySelected, setCategorySelected }) => {
 
   return (
-    <View className="flex flex-row flex-wrap mt-8 justify-center">
+    <View className="flex flex-row flex-wrap mt-6 justify-center">
       {categories.map((category) => (
         <CategoryCard
             category={category}

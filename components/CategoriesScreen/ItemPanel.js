@@ -1,19 +1,24 @@
 import SlidingUpPanel from "rn-sliding-up-panel";
 import {
   View,
-  Button,
+  TextInput,
+  Image,
+  TouchableOpacity,
   Text,
   Animated,
   Dimensions,
 } from "react-native";
-import { Image } from "react-native";
-import { TouchableOpacity } from "react-native";
+import { MinusIcon, PlusIcon } from "react-native-heroicons/solid";
 
 const { height } = Dimensions.get("window");
 
-const ItemPanel = ({ itemOpen, setItemOpen }) => {
+const ItemPanel = ({ itemOpen, setItemOpen, handleAddToMenu }) => {
   const animatedValue = new Animated.Value(0);
   const draggableRange = { top: height - 120, bottom: 0 };
+
+  const handlePress = () => {
+    handleAddToMenu(itemOpen);
+  };
 
   return (
     <SlidingUpPanel
@@ -29,12 +34,6 @@ const ItemPanel = ({ itemOpen, setItemOpen }) => {
               onPress={() => this._panel.hide()}
             />
             <View className="absolute top-6 flex flex-col items-center justify-start w-full">
-              <Text className="text-xl font-bold ml-4 w-full align-start">{itemOpen && itemOpen.title}</Text>
-              <Text className="text-sm italic ml-4 mb-2 w-full align-start">{itemOpen && itemOpen.specification}</Text>
-              <View className="w-full flex-row ml-4 mb-2">
-                <TouchableOpacity className="mr-2 w-auto px-4 py-2 bg-pink-400 rounded-2xl"><Text className="text-white text-lg font-medium">Order</Text></TouchableOpacity>
-                <TouchableOpacity className="mr-2 w-auto px-4 py-2 bg-pink-400 rounded-2xl"><Text className="text-white text-lg font-medium">Customize</Text></TouchableOpacity>
-              </View>
               <View className="h-52 w-full mb-4 self-start rounded-3xl">
                 <Image
                   className="w-full h-full rounded-3xl"
@@ -42,8 +41,44 @@ const ItemPanel = ({ itemOpen, setItemOpen }) => {
                   alt="item image"
                 />
               </View>
-              <Text className="text-xl font-bold text-pink-500">{itemOpen && "$" + itemOpen.price.toFixed(2)}</Text>
-              <Text>{itemOpen && itemOpen.description}</Text>
+              <Text className="text-xl text-center font-black tracking-widest w-full">
+                {itemOpen && itemOpen.title}
+              </Text>
+              <Text className="text-xl font-bold text-pink-500">
+                {itemOpen && "$" + itemOpen.price.toFixed(2)}
+              </Text>
+              <Text className="text-sm italic text-center mb-2 w-full">
+                {itemOpen && itemOpen.specification}
+              </Text>
+              <View className="flex flex-row bg-white rounded-3xl">
+                <TouchableOpacity
+                  onPress={handlePress}
+                  className={`h-10 w-10 m-1 bg-gray-100 rounded-xl flex justify-center items-center`}>
+                  <MinusIcon color="black" size={24} />
+                </TouchableOpacity>
+                <TextInput
+                  className="h-10 w-10 m-1 bg-gray-100 rounded-xl"
+                  value={itemOpen.quantity}
+                  onChangeText={(text) => {
+                    itemOpen.quantity = text;
+                  }}
+                />
+                <TouchableOpacity
+                  onPress={handlePress}
+                  className={`h-10 w-10 m-1 bg-pink-400 rounded-xl flex justify-center items-center`}>
+                  <PlusIcon color="white" size={24} />
+                </TouchableOpacity>
+              </View>
+              <View className="w-full flex-row justify-center my-2">
+                <TouchableOpacity className="w-auto mx-1 px-6 py-4 bg-gray-100 rounded-3xl">
+                  <Text className="text-black text-md font-black">
+                    Customize
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity className="w-auto mx-1 px-6 py-4 bg-pink-400 rounded-3xl">
+                  <Text className="text-white text-md font-black">Order</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         )}
