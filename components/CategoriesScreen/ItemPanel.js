@@ -75,8 +75,8 @@ const ItemPanel = ({ itemOpen, setItemOpen, handleAddToMenu }) => {
                     Customize
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity className="w-auto mx-1 px-6 py-4 bg-pink-400 rounded-3xl">
-                  <Text className="text-white text-md font-black">Order</Text>
+                <TouchableOpacity onPress={() => setItemOpen(null)} className="w-auto mx-1 px-6 py-4 bg-pink-400 rounded-3xl">
+                  <Text className="text-white text-md font-black">Done</Text>
                 </TouchableOpacity>
               </View>
             </View>

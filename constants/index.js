@@ -4,6 +4,19 @@ import drinks from '../assets/sakuraFestival/drinks.png';
 import sweets from '../assets/sakuraFestival/sweets.png';
 
 
+export const orderExample = [
+  {
+    title: 'Sashimi',
+    price: 4.99,
+    quantitySelected: 3,
+  },
+  {
+    title: 'Muchiga',
+    price: 4.99,
+    quantitySelected: 1,
+  }
+]
+
 export const categories = [
   {
     label: "Sushis",

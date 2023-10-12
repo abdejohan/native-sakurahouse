@@ -18,7 +18,7 @@ export default function CategoryCard({ category, categorySelected, setCategorySe
         />
       </View>
       <View className="text-center">
-        <Text className={`${categorySelected === category ? "font-black" : "font-normal"}  text-lg w-full`}>{category.label} | {category.japaneseLabel}</Text>
+        <Text className={`${categorySelected === category ? "font-black" : "font-normal"}  text-lg w-full`}>{category.label}</Text>
       </View>
     </TouchableOpacity>
   );

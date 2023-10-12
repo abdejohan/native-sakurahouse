@@ -3,10 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import WhereScreen from "../screens/WhereScreen";
-import Header from "../components/Header";
 import CategoriesScreen from "../screens/CategoriesScreen";
-import ItemsScreen from "../screens/ItemsScreen";
 import ThanksScreen from "../screens/ThanksScreen";
+import PaymentScreen from "../screens/PaymentScreen";
+import Header from "../components/Header";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +34,11 @@ export default function AppNavigation() {
           name="Home"
           options={{ headerShown: false }}
           component={HomeScreen}
+        />
+        <Stack.Screen
+          name="Payment"
+          options={{ headerShown: false }}
+          component={PaymentScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
