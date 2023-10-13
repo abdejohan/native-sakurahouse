@@ -28,7 +28,7 @@ export default function PaymentScreen() {
           <View className="w-[90vw] px-4 mx-auto flex items-center justify-center mt-4">
           <TouchableOpacity
             className="flex flex-row w-full items-center"
-            onPress={() => setCategorySelected("")}>
+            onPress={() => navigation.goBack()}>
             <ChevronLeftIcon color="white" size={24} />
             <Text className="font-black text-white text-xl">Back</Text>
           </TouchableOpacity>
