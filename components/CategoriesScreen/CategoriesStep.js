@@ -6,7 +6,7 @@ import ItemsGrid from "./ItemsGrid";
 export default function CategoriesStep({ categories, items, itemOpen, setItemOpen, categorySelected, setCategorySelected }) {
 
   return (
-    <View className="flex flex-col w-full h-full">
+    <View className="flex flex-col">
       <CategoryGrid
         categories={categories}
         setCategorySelected={setCategorySelected}

@@ -16,6 +16,7 @@ import CategoriesStep from "../components/CategoriesScreen/CategoriesStep";
 import ItemPanel from "../components/CategoriesScreen/ItemPanel";
 import sakura from "../assets/sakuraFestival/sakura-1.png";
 import { ChevronLeftIcon } from "react-native-heroicons/solid";
+import SideMenuOrder from "../components/CategoriesScreen/SideMenuOrder";
 
 const { height } = Dimensions.get("window");
 
@@ -96,12 +97,13 @@ const CategoriesScreen = () => {
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{
-              paddingBottom: 10,
               display: "flex",
               flexDirection: "column",
+              paddingBottom: 10,
+              paddingTop: 24,
             }}
-            className="pl-4 w-[100vw]">
-            <View className="w-[66%] min-h-[100vh]">
+            className="w-[100vw]">
+            <View className="w-[66%] px-4 min-h-[100vh] mt-4">
               {!categorySelected ? (
                 <Animated.View
                   style={{
@@ -138,30 +140,7 @@ const CategoriesScreen = () => {
               )}
               {renderCategoriesStep()}
             </View>
-            <View
-              id="side-order"
-              className="p-2 bg-gray-200 absolute right-0 w-[34%] min-h-[100vh] pt-20">
-              <Text className="text-xl font-black">My Order</Text>
-              {/* <Text>{where}</Text> */}
-              {order.map((item, index) => (
-                <View
-                  key={`${item}${index}orderitem`}
-                  className="flex flex-row justify-start">
-                  <Text className="w-10">x{item.quantity}</Text>
-                  <Text className="w-20">
-                    ${(item.price * item.quantity).toFixed(2)}
-                  </Text>
-                </View>
-              ))}
-
-              <View className="flex flex-col items-center justify-between mt-4">
-                <Text>Total</Text>
-                <Text>$24.99</Text>
-                <TouchableOpacity onPress={() => navigation.navigate("Payment")} className="flex flex-row justify-between bg-pink-500 py-2 px-4 rounded-xl">
-                  <Text className="text-white text-lg font-bold">Payment</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
+            <SideMenuOrder />
           </ScrollView>
           <ItemPanel
             itemOpen={itemOpen}

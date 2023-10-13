@@ -9,11 +9,15 @@ export const orderExample = [
     title: 'Sashimi',
     price: 4.99,
     quantitySelected: 3,
+    image:
+    "https://res.cloudinary.com/dnhq4fcyp/image/upload/v1688029725/q7jxyvcwn562tazjdbrw.jpg",
   },
   {
     title: 'Muchiga',
-    price: 4.99,
+    price: 4.1,
     quantitySelected: 1,
+    image:
+    "https://res.cloudinary.com/dnhq4fcyp/image/upload/v1689934848/bg7vjubouiqkb0osvypi.webp",
   }
 ]
 

@@ -5,7 +5,7 @@ export default function CategoryCard({ category, categorySelected, setCategorySe
 
   return (
     <TouchableOpacity
-      className={`${categorySelected === category ? "bg-pink-200 border" : "bg-pink-100"} w-[45%] aspect-[9/10] rounded-3xl mx-auto my-2 py-3 flex flex-col items-center justify-center`}
+      className={`${categorySelected === category ? "bg-pink-100 border" : "bg-pink-50"} w-[45%] aspect-[9/10] rounded-3xl mx-auto my-2 py-3 flex flex-col items-center justify-center`}
       onPress={() => {
         categorySelected !== category ? setCategorySelected(category) : setCategorySelected("")
       }}

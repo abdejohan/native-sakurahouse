@@ -13,7 +13,6 @@ const Stack = createNativeStackNavigator();
 export default function AppNavigation() {
   return (
     <NavigationContainer>
-      <Header />
       <Stack.Navigator>
         <Stack.Screen
           name="Where"

@@ -13,13 +13,13 @@ export default function ItemCard({
     <TouchableOpacity
       onPress={() => setItemOpen(item)}
       key={`${index}${item.title}-itemcard`}
-      className={`${itemOpen === item ? "" : "" } w-[30%] h-full aspect-[9/12] my-2 mx-auto flex flex-col justify-between relative rounded-3xl`}>
-      <View className="w-full h-full rounded-3xl">
-        <Image className="rounded-3xl h-full" src={item?.image} alt="Card Image" />
+      className={`${itemOpen === item ? "" : "" } w-[28%] aspect-[1/2] m-1 flex flex-col justify-between`}>
+      <View className="max-w-full aspect-square rounded-full">
+        <Image className="h-full min-w-full rounded-full" src={item?.image} alt="Card Image" />
       </View>
-      <View className="w-full h-[50%] flex flex-col items-center justify-center rounded-b-3xl absolute bottom-0">
-          <Text className="text-white font-medium text-xl text-center">{item.title}</Text>
-          <Text className="text-white italic">${item.price.toFixed(2)}</Text>
+      <View className="w-full h-[50%] px-1 pb-4 mt-2 flex flex-col items-center justify-between">
+          <Text className="text-black text-xs font-medium italic text-center">{item.title}</Text>
+          <Text className="text-pink-500 font-bold text-xs">${item.price.toFixed(2)}</Text>
       </View>
     </TouchableOpacity>
   );
