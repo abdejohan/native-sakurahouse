@@ -60,7 +60,7 @@ const ItemPanel = ({ itemOpen, setItemOpen, handleAddToMenu }) => {
                   className="h-10 w-10 m-1 bg-gray-100 rounded-xl"
                   value={itemOpen.quantity}
                   onChangeText={(text) => {
-                    itemOpen.quantity = text;
+                    itemOpen.quantitySelected = text;
                   }}
                 />
                 <TouchableOpacity
@@ -70,12 +70,12 @@ const ItemPanel = ({ itemOpen, setItemOpen, handleAddToMenu }) => {
                 </TouchableOpacity>
               </View>
               <View className="w-full flex-row justify-center my-2">
-                <TouchableOpacity className="w-auto mx-1 px-6 py-4 bg-gray-100 rounded-3xl">
+                <TouchableOpacity className="w-auto mx-1 px-6 py-4 bg-gray-100 rounded-xl">
                   <Text className="text-black text-md font-black">
                     Customize
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => setItemOpen(null)} className="w-auto mx-1 px-6 py-4 bg-pink-400 rounded-3xl">
+                <TouchableOpacity onPress={() => setItemOpen(null)} className="w-auto mx-1 px-6 py-4 bg-pink-400 rounded-xl">
                   <Text className="text-white text-md font-black">Done</Text>
                 </TouchableOpacity>
               </View>

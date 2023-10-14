@@ -14,7 +14,7 @@ const SideMenuOrder = () => {
   return (
     <View
       id="side-order"
-      className="pr-4 pl-4 pt-20 bg-pink-50 absolute right-0 w-[33%] min-h-[100vh] h-full">
+      className="pr-4 pl-4 pt-20 bg-pink-50 mt-6 absolute right-0 w-[34%] min-h-[100vh] h-full">
       <Text className="text-lg font-black">My</Text>
       <Text className="text-lg font-black">Order</Text>
       <Text className="text-gray-400 text-xs mt-2 mb-6">Take Out</Text>
@@ -35,8 +35,8 @@ const SideMenuOrder = () => {
           </Text>
           <View className="flex flex-row items-center">
             <TouchableOpacity
-              className={`w-4 h-2 m-1 px-4 py-3 bg-gray-300 flex justify-center items-center rounded-xl`}>
-              <MinusIcon color="white" size={18} />
+              className={`w-4 h-2 m-1 px-4 py-3 bg-gray-100 flex justify-center items-center rounded-xl`}>
+              <MinusIcon color="black" size={18} />
             </TouchableOpacity>
             <Text className="px-1 text-center font-medium text-xs">
               {item.quantitySelected}

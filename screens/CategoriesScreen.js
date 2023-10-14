@@ -25,7 +25,8 @@ const CategoriesScreen = () => {
   const [itemOpen, setItemOpen] = useState(null);
   const [order, setOrder] = useState(orderExample);
   const [categorySelected, setCategorySelected] = useState("");
-  const [prevCategorySelected, setPrevCategorySelected] = useState("");
+  const [thereisacategoryselected, setthereisacategoryselected] =
+    useState(false);
   const fadeAnim = useState(new Animated.Value(0))[0];
   const scaleAnim = useState(new Animated.Value(1))[0];
   const translateYAnim = new Animated.Value(-100);
@@ -33,33 +34,6 @@ const CategoriesScreen = () => {
 
   const handleAddToMenu = (item) => {
     console.log(item);
-  };
-
-  const navigation = useNavigation()
-
-  const renderCategoriesStep = () => {
-    return (
-      <Animated.View
-        style={{
-          opacity: fadeAnim,
-          transform: [
-            {
-              translateY: categorySelected
-                ? translateYRevertAnim
-                : translateYAnim,
-            },
-          ],
-        }}>
-        <CategoriesStep
-          categories={categories}
-          items={items}
-          itemOpen={itemOpen}
-          setItemOpen={setItemOpen}
-          categorySelected={categorySelected}
-          setCategorySelected={setCategorySelected}
-        />
-      </Animated.View>
-    );
   };
 
   useEffect(() => {
@@ -71,22 +45,45 @@ const CategoriesScreen = () => {
   }, [itemOpen]);
 
   useEffect(() => {
-    Animated.parallel([
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: true,
-      }),
-      Animated.timing(
-        categorySelected ? translateYRevertAnim : translateYAnim,
-        {
-          toValue: 0,
+    if (categorySelected.length === 0) setthereisacategoryselected(false);
+    else setthereisacategoryselected(true);
+  }, [categorySelected]);
+
+  useEffect(() => {
+    if (thereisacategoryselected) {
+      Animated.parallel([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
           duration: 500,
           useNativeDriver: true,
-        }
-      ),
-    ]).start();
-  }, [categorySelected]);
+        }),
+        Animated.timing(
+          translateYRevertAnim,
+          {
+            toValue: 0,
+            duration: 500,
+            useNativeDriver: true,
+          }
+        ),
+      ]).start();
+    } else {
+      Animated.parallel([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(
+          translateYAnim,
+          {
+            toValue: 0,
+            duration: 500,
+            useNativeDriver: true,
+          }
+        ),
+      ]).start();
+    }
+  }, [thereisacategoryselected]);
 
   return (
     <View className="flex-1 bg-white">
@@ -99,7 +96,6 @@ const CategoriesScreen = () => {
             contentContainerStyle={{
               display: "flex",
               flexDirection: "column",
-              paddingBottom: 10,
               paddingTop: 24,
             }}
             className="w-[100vw]">
@@ -128,7 +124,7 @@ const CategoriesScreen = () => {
                 <Animated.View
                   style={{
                     opacity: fadeAnim,
-                    transform: [{ translateY: translateYRevertAnim }],
+                    transform: [{ translateY: 0 }],
                   }}>
                   <TouchableOpacity
                     className="flex flex-row items-center"
@@ -138,7 +134,26 @@ const CategoriesScreen = () => {
                   </TouchableOpacity>
                 </Animated.View>
               )}
-              {renderCategoriesStep()}
+              <Animated.View
+                style={{
+                  opacity: fadeAnim,
+                  transform: [
+                    {
+                      translateY: categorySelected
+                        ? 0
+                        : translateYAnim,
+                    },
+                  ],
+                }}>
+                <CategoriesStep
+                  categories={categories}
+                  items={items}
+                  itemOpen={itemOpen}
+                  setItemOpen={setItemOpen}
+                  categorySelected={categorySelected}
+                  setCategorySelected={setCategorySelected}
+                />
+              </Animated.View>
             </View>
             <SideMenuOrder />
           </ScrollView>

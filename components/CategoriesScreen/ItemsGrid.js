@@ -7,7 +7,7 @@ export default function ItemsGrid({ items, category, itemOpen, setItemOpen }) {
 
 
   return (
-      <View className="mt-14">
+      <View className="my-14">
         <Text className="tracking-widest font-black text-[24px] mb-2">
           {category.label}
         </Text>
