@@ -26,17 +26,17 @@ const ItemPanel = ({ itemOpen, setItemOpen, handleAddToMenu }) => {
       animatedValue={animatedValue}
       draggableRange={draggableRange}
       onBottomReached={() => setItemOpen(null)}>
-      <View className="flex-1 bg-white items-center justify-start px-4 relative rounded-3xl">
+      <View className="flex-1 bg-pink-50 items-center justify-start px-4 relative rounded-xl">
         {itemOpen && (
           <View className="flex items-center justify-start w-full">
             <TouchableOpacity
-              className="absolute top-2 bg-gray-200 h-1 w-6 rounded-3xl"
+              className="absolute top-2 bg-gray-200 h-1 w-6 rounded-xl"
               onPress={() => this._panel.hide()}
             />
             <View className="absolute top-6 flex flex-col items-center justify-start w-full">
-              <View className="h-52 w-full mb-4 self-start rounded-3xl">
+              <View className="h-44 w-full mb-4 self-start">
                 <Image
-                  className="w-full h-full rounded-3xl"
+                  className="w-full h-full rounded-xl"
                   src={itemOpen.image}
                   alt="item image"
                 />
@@ -50,7 +50,7 @@ const ItemPanel = ({ itemOpen, setItemOpen, handleAddToMenu }) => {
               <Text className="text-sm italic text-center mb-2 w-full">
                 {itemOpen && itemOpen.specification}
               </Text>
-              <View className="flex flex-row bg-white rounded-3xl">
+              <View className="flex flex-row bg-white rounded-xl">
                 <TouchableOpacity
                   onPress={handlePress}
                   className={`h-10 w-10 m-1 bg-gray-100 rounded-xl flex justify-center items-center`}>

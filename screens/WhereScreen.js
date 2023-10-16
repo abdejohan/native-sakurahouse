@@ -12,7 +12,7 @@ export default function WhereScreen() {
 
   const handleWhereChoice = (choice) => {    
     setWhereChoice(choice);
-    navigation.navigate("Categories", { whereChoice });
+    navigation.navigate("Menu", { whereChoice });
   };
 
 

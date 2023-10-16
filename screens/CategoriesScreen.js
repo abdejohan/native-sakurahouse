@@ -9,19 +9,23 @@ import {
   Animated,
   Easing,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import { categories, items, orderExample } from "../constants";
 import Loading from "../components/Loading";
 import CategoriesStep from "../components/CategoriesScreen/CategoriesStep";
 import ItemPanel from "../components/CategoriesScreen/ItemPanel";
 import sakura from "../assets/sakuraFestival/sakura-1.png";
-import { ChevronLeftIcon } from "react-native-heroicons/solid";
+import {
+  ChevronLeftIcon,
+  ShoppingCartIcon,
+  XMarkIcon,
+} from "react-native-heroicons/solid";
 import SideMenuOrder from "../components/CategoriesScreen/SideMenuOrder";
 
 const { height } = Dimensions.get("window");
 
 const CategoriesScreen = () => {
   const [loading, setLoading] = useState(false);
+  const [sideOrderOpen, setSideOrderOpen] = useState(false);
   const [itemOpen, setItemOpen] = useState(null);
   const [order, setOrder] = useState(orderExample);
   const [categorySelected, setCategorySelected] = useState("");
@@ -30,7 +34,7 @@ const CategoriesScreen = () => {
   const fadeAnim = useState(new Animated.Value(0))[0];
   const scaleAnim = useState(new Animated.Value(1))[0];
   const translateYAnim = new Animated.Value(-100);
-  const translateYRevertAnim = new Animated.Value(100);
+  const translateYReverseAnim = new Animated.Value(100);
 
   const handleAddToMenu = (item) => {
     console.log(item);
@@ -51,20 +55,18 @@ const CategoriesScreen = () => {
 
   useEffect(() => {
     if (thereisacategoryselected) {
+      console.log("its category selected");
       Animated.parallel([
         Animated.timing(fadeAnim, {
           toValue: 1,
           duration: 500,
           useNativeDriver: true,
         }),
-        Animated.timing(
-          translateYRevertAnim,
-          {
-            toValue: 0,
-            duration: 500,
-            useNativeDriver: true,
-          }
-        ),
+        Animated.timing(translateYReverseAnim, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true,
+        }),
       ]).start();
     } else {
       Animated.parallel([
@@ -73,20 +75,19 @@ const CategoriesScreen = () => {
           duration: 500,
           useNativeDriver: true,
         }),
-        Animated.timing(
-          translateYAnim,
-          {
-            toValue: 0,
-            duration: 500,
-            useNativeDriver: true,
-          }
-        ),
+        Animated.timing(translateYAnim, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true,
+        }),
       ]).start();
     }
-  }, [thereisacategoryselected]);
+  }, [thereisacategoryselected, sideOrderOpen]);
+
+  console.log(translateYAnim);
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-pink-100">
       {loading ? (
         <Loading />
       ) : (
@@ -96,66 +97,72 @@ const CategoriesScreen = () => {
             contentContainerStyle={{
               display: "flex",
               flexDirection: "column",
+              alignItems: "center",
+              paddingBottom: 10,
               paddingTop: 24,
-            }}
-            className="w-[100vw]">
-            <View className="w-[66%] px-4 min-h-[100vh] mt-4">
-              {!categorySelected ? (
-                <Animated.View
-                  style={{
-                    opacity: fadeAnim,
-                    transform: [{ translateY: translateYAnim }],
-                  }}>
-                  <View className="h-14 w-14 mt-4 mb-4">
-                    <Image
-                      className="max-w-full max-h-full"
-                      source={sakura}
-                      alt="sakura-logo"
-                    />
-                  </View>
-                  <Text className="tracking-widest font-black text-[28px] mb-2">
-                    Hey,
-                  </Text>
-                  <Text className="tracking-widest font-medium text-[24px] mb-2">
-                    what will you eat?
-                  </Text>
-                </Animated.View>
-              ) : (
-                <Animated.View
-                  style={{
-                    opacity: fadeAnim,
-                    transform: [{ translateY: 0 }],
-                  }}>
-                  <TouchableOpacity
-                    className="flex flex-row items-center"
-                    onPress={() => setCategorySelected("")}>
-                    <ChevronLeftIcon color="black" size={24} />
-                    <Text className="font-black text-xl">Back</Text>
-                  </TouchableOpacity>
-                </Animated.View>
-              )}
-              <Animated.View
-                style={{
-                  opacity: fadeAnim,
-                  transform: [
-                    {
-                      translateY: categorySelected
-                        ? 0
-                        : translateYAnim,
-                    },
-                  ],
-                }}>
-                <CategoriesStep
-                  categories={categories}
-                  items={items}
-                  itemOpen={itemOpen}
-                  setItemOpen={setItemOpen}
-                  categorySelected={categorySelected}
-                  setCategorySelected={setCategorySelected}
-                />
-              </Animated.View>
-            </View>
-            <SideMenuOrder />
+            }}>
+            <Animated.View
+              style={{
+                opacity: fadeAnim,
+                transform: [
+                  {
+                    translateY: thereisacategoryselected
+                      ? translateYReverseAnim
+                      : translateYAnim,
+                  },
+                ],
+              }}
+              className="w-[90vw] mx-auto p-4 mt-4 min-h-[100vh]">
+              <View className="flex flex-row">
+                <View className="w-[70%] bg-red-200 bg-purple-100">
+                  {!categorySelected ? (
+                    <>
+                      <View className="h-14 w-14 mt-4 mb-4">
+                        <Image
+                          className="max-w-full max-h-full"
+                          source={sakura}
+                          alt="sakura-logo"
+                        />
+                      </View>
+                      <Text className="tracking-widest font-black text-[28px] mb-2">
+                        Hey,
+                      </Text>
+                      <Text className="tracking-widest font-medium text-[24px] mb-2">
+                        what will you eat?
+                      </Text>
+                    </>
+                  ) : (
+                    <TouchableOpacity
+                      className="flex flex-row justify-start items-center bg-blue-100 h-12"
+                      onPress={() => setCategorySelected("")}>
+                      <ChevronLeftIcon color="black" size={24} />
+                      <Text className="font-black text-xl">Back</Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+                <TouchableOpacity
+                  className="w-[30%] p-2 flex items-end justify-end bg-red-100"
+                  onPress={() => setSideOrderOpen(!sideOrderOpen)}>
+                  <ShoppingCartIcon color="black" size={30} />
+                </TouchableOpacity>
+              </View>
+              <CategoriesStep
+                categories={categories}
+                items={items}
+                itemOpen={itemOpen}
+                setItemOpen={setItemOpen}
+                categorySelected={categorySelected}
+                setCategorySelected={setCategorySelected}
+                fadeAnim={fadeAnim}
+                translateYAnim={translateYAnim}
+              />
+            </Animated.View>
+            {sideOrderOpen && (
+              <SideMenuOrder
+                sideOrderOpen={sideOrderOpen}
+                setSideOrderOpen={setSideOrderOpen}
+              />
+            )}
           </ScrollView>
           <ItemPanel
             itemOpen={itemOpen}

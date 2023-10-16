@@ -1,5 +1,5 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import WhereScreen from "../screens/WhereScreen";
@@ -7,10 +7,12 @@ import CategoriesScreen from "../screens/CategoriesScreen";
 import ThanksScreen from "../screens/ThanksScreen";
 import PaymentScreen from "../screens/PaymentScreen";
 import Header from "../components/Header";
+import NavigationSteps from "../components/NavigationSteps";
 
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigation() {
+  
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -20,7 +22,7 @@ export default function AppNavigation() {
           component={WhereScreen}
         />
         <Stack.Screen
-          name="Categories"
+          name="Menu"
           options={{ headerShown: false }}
           component={CategoriesScreen}
         />
@@ -40,6 +42,8 @@ export default function AppNavigation() {
           component={PaymentScreen}
         />
       </Stack.Navigator>
+      <NavigationSteps />
+      <Header />
     </NavigationContainer>
   );
 }

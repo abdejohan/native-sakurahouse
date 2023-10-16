@@ -25,7 +25,7 @@ export default function PaymentScreen() {
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 10, paddingTop: 24 }}>
-          <View className="w-[90vw] px-4 mx-auto flex items-center justify-center mt-4">
+          <View className="w-[90vw] p-4 mx-auto flex items-center justify-center mt-4">
           <TouchableOpacity
             className="flex flex-row w-full items-center"
             onPress={() => navigation.goBack()}>
@@ -49,9 +49,9 @@ export default function PaymentScreen() {
               <View
                 key={`${item}${index}orderitem`}
                 className="flex w-full flex-row items-center py-4 justify-between border-b border-gray-300">
-                <View className="w-12 aspect-square rounded-full">
+                <View className="w-12 aspect-square rounded-xl">
                   <Image
-                    className="h-full min-w-full rounded-full"
+                    className="h-full min-w-full rounded-xl"
                     src={item?.image}
                     alt="Card Image"
                   />

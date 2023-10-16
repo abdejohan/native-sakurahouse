@@ -14,7 +14,7 @@ export default function Tab({ children, title, title2, icon }) {
     <View className={`bg-green-200 max-w-[45vw] ${isOpen ? "fixed" : ""}`}>
       <TouchableOpacity
         onPress={handleTabClick}
-        className="aspect-[9/11] rounded-3xl my-4 py-3 mx-auto flex flex-col justify-center items-center bg-pink-100">
+        className="aspect-[9/11] rounded-xl my-4 py-3 mx-auto flex flex-col justify-center items-center bg-pink-100">
         <View className="h-24 w-24 p-1 mb-6">
           <Image className="max-w-full max-h-full" source={icon} alt={title} />
         </View>

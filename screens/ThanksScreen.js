@@ -21,7 +21,7 @@ export default function ThanksScreen() {
             We will update you when it'll be hot & ready!
           </Text>
           <TouchableOpacity
-            className="bg-pink-400 mt-8 rounded-3xl"
+            className="bg-pink-400 mt-8 rounded-xl"
             onLongPress={() => navigation.navigate("Home")}>
             <Text className="text-white text-center p-4 font-bold text-xl">
               Long press to go back to the beginning

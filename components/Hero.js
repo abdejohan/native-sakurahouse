@@ -11,7 +11,7 @@ export default function Hero() {
         Experience the essence of Japanese cuisine 🌸
       </Text>
       <TouchableOpacity
-        className="mt-4 py-5 px-6 rounded-3xl bg-pink-100"
+        className="mt-4 py-5 px-6 rounded-xl bg-pink-100"
         onPress={() => {
           navigation.navigate("Where");
         }}>

@@ -14,8 +14,8 @@ export default function ItemCard({
       onPress={() => setItemOpen(item)}
       key={`${index}${item.title}-itemcard`}
       className={`${itemOpen === item ? "" : "" } w-[28%] aspect-[1/2] m-1 flex flex-col justify-between`}>
-      <View className="max-w-full aspect-square rounded-full">
-        <Image className="h-full min-w-full rounded-full" src={item?.image} alt="Card Image" />
+      <View className="max-w-full aspect-square rounded-xl">
+        <Image className="h-full min-w-full rounded-xl" src={item?.image} alt="Card Image" />
       </View>
       <View className="w-full h-[50%] px-1 pb-4 mt-2 flex flex-col items-center justify-between">
           <Text className="text-black text-xs font-medium italic text-center">{item.title}</Text>
