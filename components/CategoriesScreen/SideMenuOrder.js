@@ -40,19 +40,16 @@ const SideMenuOrder = ({ sideOrderOpen, setSideOrderOpen }) => {
         height: "100%",
         backgroundColor: "#00000020",
         zIndex: 1,
-      }}
-    >
+      }}>
       <Animated.View
         style={{
           height: "100%",
           transform: [{ translateX: translateXAnim }],
           zIndex: 2,
-        }}
-      >
+        }}>
         <View
           id="side-order"
-          className="pr-4 pl-4 pt-20 bg-pink-50 absolute right-0 w-[70%] min-h-[100vh] h-full"
-        >
+          className="pr-4 pl-4 pt-20 bg-pink-50 absolute right-0 w-[70%] min-h-[100vh] h-full">
           <View className="flex flex-row justify-between items-start">
             <View className="flex flex-col">
               <Text className="text-lg font-black">My</Text>
@@ -66,8 +63,7 @@ const SideMenuOrder = ({ sideOrderOpen, setSideOrderOpen }) => {
           {order.map((item, index) => (
             <View
               key={`${item}${index}-orderitem`}
-              className="flex flex-col justify-center items-center py-4 border-b border-pink-200"
-            >
+              className="flex flex-col justify-center items-center py-4 border-b border-pink-200">
               <View className="w-12 aspect-square rounded-xl mb-3">
                 <Image
                   className="h-full min-w-full rounded-xl"
@@ -84,8 +80,7 @@ const SideMenuOrder = ({ sideOrderOpen, setSideOrderOpen }) => {
               <View className="flex flex-row items-center">
                 <TouchableOpacity
                   onPress={() => decrementQuantity(index)}
-                  className={`w-4 h-2 m-1 px-4 py-3 bg-gray-100 flex justify-center items-center rounded-xl`}
-                >
+                  className={`w-4 h-2 m-1 px-4 py-3 bg-gray-100 flex justify-center items-center rounded-xl`}>
                   <MinusIcon color="black" size={18} />
                 </TouchableOpacity>
                 <Text className="px-1 text-center font-medium text-xs">
@@ -93,8 +88,7 @@ const SideMenuOrder = ({ sideOrderOpen, setSideOrderOpen }) => {
                 </Text>
                 <TouchableOpacity
                   onPress={() => incrementQuantity(index)}
-                  className={`w-4 h-2 m-1 px-4 py-3 bg-pink-500 flex justify-center items-center rounded-xl`}
-                >
+                  className={`w-4 h-2 m-1 px-4 py-3 bg-pink-500 flex justify-center items-center rounded-xl`}>
                   <PlusIcon color="white" size={18} />
                 </TouchableOpacity>
               </View>
@@ -106,8 +100,7 @@ const SideMenuOrder = ({ sideOrderOpen, setSideOrderOpen }) => {
             <Text>$24.99</Text>
             <TouchableOpacity
               onPress={() => navigation.navigate("Payment")}
-              className="flex flex-row justify-between bg-pink-500 mt-4 py-2 px-4 rounded-xl"
-            >
+              className="flex flex-row justify-between bg-pink-500 mt-4 py-2 px-4 rounded-xl">
               <Text className="text-white text-center text-lg font-bold">
                 Order
               </Text>
