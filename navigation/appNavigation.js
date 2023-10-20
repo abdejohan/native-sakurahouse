@@ -12,10 +12,17 @@ import NavigationSteps from "../components/NavigationSteps";
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigation() {
-  
+
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+      screenListeners={{
+        state: (e) => {
+          // Do something with the state
+          console.log('Current Screen', e.data.state.routeNames[e.data.state.index]);
+        },
+      }}      
+      >
         <Stack.Screen
           name="Where"
           options={{ headerShown: false }}
